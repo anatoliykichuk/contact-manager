@@ -20,7 +20,10 @@ const val REQUEST_CODE = 99
 class ContactsFragment : Fragment() {
 
     private val viewModel: ContactsViewModel by lazy {
-        ViewModelProvider(this).get(ContactsViewModel::class.java)
+        ViewModelProvider(
+            this,
+            ContactsViewModelFactory(context)
+        ).get(ContactsViewModel::class.java)
     }
 
     private var _binding: FragmentContactsBinding? = null
